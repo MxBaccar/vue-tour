@@ -4791,12 +4791,12 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__("b0c0");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e082d0d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VTour.vue?vue&type=template&id=5e71e3c4&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e082d0d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VTour.vue?vue&type=template&id=541a41ea&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-tour"},[_vm._t("default",[(_vm.steps[_vm.currentStep])?_c('v-step',{key:_vm.currentStep,attrs:{"step":_vm.steps[_vm.currentStep],"previous-step":_vm.previousStep,"next-step":_vm.nextStep,"stop":_vm.stop,"skip":_vm.skip,"finish":_vm.finish,"is-first":_vm.isFirst,"is-last":_vm.isLast,"labels":_vm.customOptions.labels,"enabled-buttons":_vm.customOptions.enabledButtons,"highlight":_vm.customOptions.highlight,"stop-on-fail":_vm.customOptions.stopOnTargetNotFound,"debug":_vm.customOptions.debug},on:{"targetNotFound":function($event){return _vm.$emit('targetNotFound', $event)}}}):_vm._e()],{"currentStep":_vm.currentStep,"steps":_vm.steps,"previousStep":_vm.previousStep,"nextStep":_vm.nextStep,"stop":_vm.stop,"skip":_vm.skip,"finish":_vm.finish,"isFirst":_vm.isFirst,"isLast":_vm.isLast,"labels":_vm.customOptions.labels,"enabledButtons":_vm.customOptions.enabledButtons,"highlight":_vm.customOptions.highlight,"debug":_vm.customOptions.debug})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/VTour.vue?vue&type=template&id=5e71e3c4&
+// CONCATENATED MODULE: ./src/components/VTour.vue?vue&type=template&id=541a41ea&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
 var es_promise = __webpack_require__("e6cf");
@@ -5044,7 +5044,7 @@ var KEYS = {
 //
 
 /* harmony default export */ var VTourvue_type_script_lang_js_ = ({
-  name: "v-tour",
+  name: 'v-tour',
   props: {
     steps: {
       type: Array,
@@ -5079,7 +5079,7 @@ var KEYS = {
   beforeDestroy: function beforeDestroy() {
     // Remove the keyup listener if it has been defined
     if (this.customOptions.useKeyboardNavigation) {
-      window.removeEventListener("keyup", this.handleKeyup);
+      window.removeEventListener('keyup', this.handleKeyup);
     }
   },
   computed: {
@@ -5120,11 +5120,11 @@ var KEYS = {
               case 0:
                 // Register keyup listeners for this tour
                 if (_this.customOptions.useKeyboardNavigation) {
-                  window.addEventListener("keyup", _this.handleKeyup);
+                  window.addEventListener('keyup', _this.handleKeyup);
                 } // Wait for the DOM to be loaded, then start the tour
 
 
-                startStep = typeof startStep !== "undefined" ? parseInt(startStep, 10) : 0;
+                startStep = typeof startStep !== 'undefined' ? parseInt(startStep, 10) : 0;
                 step = _this.steps[startStep];
 
                 process = function process() {
@@ -5138,14 +5138,14 @@ var KEYS = {
                   });
                 };
 
-                if (!(typeof step.before !== "undefined")) {
+                if (!(typeof step.before !== 'undefined')) {
                   _context.next = 13;
                   break;
                 }
 
                 _context.prev = 5;
                 _context.next = 8;
-                return step.before("start");
+                return step.before('start');
 
               case 8:
                 _context.next = 13;
@@ -5198,14 +5198,14 @@ var KEYS = {
 
                 step = _this2.steps[futureStep];
 
-                if (!(typeof step.before !== "undefined")) {
+                if (!(typeof step.before !== 'undefined')) {
                   _context2.next = 13;
                   break;
                 }
 
                 _context2.prev = 5;
                 _context2.next = 8;
-                return step.before("previous");
+                return step.before('previous');
 
               case 8:
                 _context2.next = 13;
@@ -5252,54 +5252,54 @@ var KEYS = {
                 };
 
                 if (!(futureStep < _this3.numberOfSteps && _this3.currentStep !== -1)) {
-                  _context3.next = 16;
+                  _context3.next = 17;
                   break;
                 }
 
                 step = _this3.steps[futureStep];
+                console.log(step);
 
-                if (!(typeof step.before !== "undefined")) {
-                  _context3.next = 14;
+                if (!(typeof step.before !== 'undefined')) {
+                  _context3.next = 15;
                   break;
                 }
 
-                _context3.prev = 5;
+                _context3.prev = 6;
 
-                if (typeof step.before == "string") {
-                  console.log(step.before);
-                  step.before = new Function("return " + step.before)();
+                if (typeof step.before == 'string') {
+                  step.before = new Function('return ' + step.before)();
                 }
 
-                _context3.next = 9;
-                return step.before("next");
+                _context3.next = 10;
+                return step.before('next');
 
-              case 9:
-                _context3.next = 14;
+              case 10:
+                _context3.next = 15;
                 break;
 
-              case 11:
-                _context3.prev = 11;
-                _context3.t0 = _context3["catch"](5);
+              case 12:
+                _context3.prev = 12;
+                _context3.t0 = _context3["catch"](6);
                 return _context3.abrupt("return", Promise.reject(_context3.t0));
 
-              case 14:
-                _context3.next = 16;
+              case 15:
+                _context3.next = 17;
                 return process();
 
-              case 16:
+              case 17:
                 return _context3.abrupt("return", Promise.resolve());
 
-              case 17:
+              case 18:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, null, [[5, 11]]);
+        }, _callee3, null, [[6, 12]]);
       }))();
     },
     stop: function stop() {
       this.customCallbacks.onStop();
-      document.body.classList.remove("v-tour--active");
+      document.body.classList.remove('v-tour--active');
       this.currentStep = -1;
     },
     skip: function skip() {
@@ -5312,20 +5312,20 @@ var KEYS = {
     },
     handleKeyup: function handleKeyup(e) {
       if (this.customOptions.debug) {
-        console.log("[Vue Tour] A keyup event occured:", e);
+        console.log('[Vue Tour] A keyup event occured:', e);
       }
 
       switch (e.keyCode) {
         case KEYS.ARROW_RIGHT:
-          this.isKeyEnabled("arrowRight") && this.nextStep();
+          this.isKeyEnabled('arrowRight') && this.nextStep();
           break;
 
         case KEYS.ARROW_LEFT:
-          this.isKeyEnabled("arrowLeft") && this.previousStep();
+          this.isKeyEnabled('arrowLeft') && this.previousStep();
           break;
 
         case KEYS.ESCAPE:
-          this.isKeyEnabled("escape") && this.stop();
+          this.isKeyEnabled('escape') && this.stop();
           break;
       }
     },
