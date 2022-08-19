@@ -50,27 +50,27 @@ export default {
   props: {
     steps: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     name: {
-      type: String,
+      type: String
     },
     options: {
       type: Object,
       default: () => {
         return DEFAULT_OPTIONS;
-      },
+      }
     },
     callbacks: {
       type: Object,
       default: () => {
         return DEFAULT_CALLBACKS;
-      },
-    },
+      }
+    }
   },
   data() {
     return {
-      currentStep: -1,
+      currentStep: -1
     };
   },
   mounted() {
@@ -88,13 +88,13 @@ export default {
     customOptions() {
       return {
         ...DEFAULT_OPTIONS,
-        ...this.options,
+        ...this.options
       };
     },
     customCallbacks() {
       return {
         ...DEFAULT_CALLBACKS,
-        ...this.callbacks,
+        ...this.callbacks
       };
     },
     // Return true if the tour is active, which means that there's a VStep displayed
@@ -112,7 +112,7 @@ export default {
     },
     step() {
       return this.steps[this.currentStep];
-    },
+    }
   },
   methods: {
     async start(startStep) {
@@ -184,8 +184,10 @@ export default {
         let step = this.steps[futureStep];
         if (typeof step.before !== "undefined") {
           try {
-            if (typeof step.before == "string")
+            if (typeof step.before == "string") {
+              console.log(step.before);
               step.before = new Function("return " + step.before)();
+            }
             await step.before("next");
           } catch (e) {
             return Promise.reject(e);
@@ -231,8 +233,8 @@ export default {
       return enabledNavigationKeys.hasOwnProperty(key)
         ? enabledNavigationKeys[key]
         : true;
-    },
-  },
+    }
+  }
 };
 </script>
 
