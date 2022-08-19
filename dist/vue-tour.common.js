@@ -4782,12 +4782,12 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
 var es_function_name = __webpack_require__("b0c0");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72204f46-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VTour.vue?vue&type=template&id=f4b97d58&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e082d0d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VTour.vue?vue&type=template&id=4f50755c&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"v-tour"},[_vm._t("default",[(_vm.steps[_vm.currentStep])?_c('v-step',{key:_vm.currentStep,attrs:{"step":_vm.steps[_vm.currentStep],"previous-step":_vm.previousStep,"next-step":_vm.nextStep,"stop":_vm.stop,"skip":_vm.skip,"finish":_vm.finish,"is-first":_vm.isFirst,"is-last":_vm.isLast,"labels":_vm.customOptions.labels,"enabled-buttons":_vm.customOptions.enabledButtons,"highlight":_vm.customOptions.highlight,"stop-on-fail":_vm.customOptions.stopOnTargetNotFound,"debug":_vm.customOptions.debug},on:{"targetNotFound":function($event){return _vm.$emit('targetNotFound', $event)}}}):_vm._e()],{"currentStep":_vm.currentStep,"steps":_vm.steps,"previousStep":_vm.previousStep,"nextStep":_vm.nextStep,"stop":_vm.stop,"skip":_vm.skip,"finish":_vm.finish,"isFirst":_vm.isFirst,"isLast":_vm.isLast,"labels":_vm.customOptions.labels,"enabledButtons":_vm.customOptions.enabledButtons,"highlight":_vm.customOptions.highlight,"debug":_vm.customOptions.debug})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/VTour.vue?vue&type=template&id=f4b97d58&
+// CONCATENATED MODULE: ./src/components/VTour.vue?vue&type=template&id=4f50755c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.promise.js
 var es_promise = __webpack_require__("e6cf");
@@ -5035,7 +5035,7 @@ var KEYS = {
 //
 
 /* harmony default export */ var VTourvue_type_script_lang_js_ = ({
-  name: 'v-tour',
+  name: "v-tour",
   props: {
     steps: {
       type: Array,
@@ -5070,7 +5070,7 @@ var KEYS = {
   beforeDestroy: function beforeDestroy() {
     // Remove the keyup listener if it has been defined
     if (this.customOptions.useKeyboardNavigation) {
-      window.removeEventListener('keyup', this.handleKeyup);
+      window.removeEventListener("keyup", this.handleKeyup);
     }
   },
   computed: {
@@ -5111,11 +5111,11 @@ var KEYS = {
               case 0:
                 // Register keyup listeners for this tour
                 if (_this.customOptions.useKeyboardNavigation) {
-                  window.addEventListener('keyup', _this.handleKeyup);
+                  window.addEventListener("keyup", _this.handleKeyup);
                 } // Wait for the DOM to be loaded, then start the tour
 
 
-                startStep = typeof startStep !== 'undefined' ? parseInt(startStep, 10) : 0;
+                startStep = typeof startStep !== "undefined" ? parseInt(startStep, 10) : 0;
                 step = _this.steps[startStep];
 
                 process = function process() {
@@ -5129,14 +5129,14 @@ var KEYS = {
                   });
                 };
 
-                if (!(typeof step.before !== 'undefined')) {
+                if (!(typeof step.before !== "undefined")) {
                   _context.next = 13;
                   break;
                 }
 
                 _context.prev = 5;
                 _context.next = 8;
-                return step.before('start');
+                return step.before("start");
 
               case 8:
                 _context.next = 13;
@@ -5189,14 +5189,14 @@ var KEYS = {
 
                 step = _this2.steps[futureStep];
 
-                if (!(typeof step.before !== 'undefined')) {
+                if (!(typeof step.before !== "undefined")) {
                   _context2.next = 13;
                   break;
                 }
 
                 _context2.prev = 5;
                 _context2.next = 8;
-                return step.before('previous');
+                return step.before("previous");
 
               case 8:
                 _context2.next = 13;
@@ -5243,48 +5243,49 @@ var KEYS = {
                 };
 
                 if (!(futureStep < _this3.numberOfSteps && _this3.currentStep !== -1)) {
-                  _context3.next = 15;
+                  _context3.next = 16;
                   break;
                 }
 
                 step = _this3.steps[futureStep];
 
-                if (!(typeof step.before !== 'undefined')) {
-                  _context3.next = 13;
+                if (!(typeof step.before !== "undefined")) {
+                  _context3.next = 14;
                   break;
                 }
 
                 _context3.prev = 5;
-                _context3.next = 8;
-                return step.before('next');
+                if (typeof step.before == "string") step.before = new Function("return " + step.before)();
+                _context3.next = 9;
+                return step.before("next");
 
-              case 8:
-                _context3.next = 13;
+              case 9:
+                _context3.next = 14;
                 break;
 
-              case 10:
-                _context3.prev = 10;
+              case 11:
+                _context3.prev = 11;
                 _context3.t0 = _context3["catch"](5);
                 return _context3.abrupt("return", Promise.reject(_context3.t0));
 
-              case 13:
-                _context3.next = 15;
+              case 14:
+                _context3.next = 16;
                 return process();
 
-              case 15:
+              case 16:
                 return _context3.abrupt("return", Promise.resolve());
 
-              case 16:
+              case 17:
               case "end":
                 return _context3.stop();
             }
           }
-        }, _callee3, null, [[5, 10]]);
+        }, _callee3, null, [[5, 11]]);
       }))();
     },
     stop: function stop() {
       this.customCallbacks.onStop();
-      document.body.classList.remove('v-tour--active');
+      document.body.classList.remove("v-tour--active");
       this.currentStep = -1;
     },
     skip: function skip() {
@@ -5297,20 +5298,20 @@ var KEYS = {
     },
     handleKeyup: function handleKeyup(e) {
       if (this.customOptions.debug) {
-        console.log('[Vue Tour] A keyup event occured:', e);
+        console.log("[Vue Tour] A keyup event occured:", e);
       }
 
       switch (e.keyCode) {
         case KEYS.ARROW_RIGHT:
-          this.isKeyEnabled('arrowRight') && this.nextStep();
+          this.isKeyEnabled("arrowRight") && this.nextStep();
           break;
 
         case KEYS.ARROW_LEFT:
-          this.isKeyEnabled('arrowLeft') && this.previousStep();
+          this.isKeyEnabled("arrowLeft") && this.previousStep();
           break;
 
         case KEYS.ESCAPE:
-          this.isKeyEnabled('escape') && this.stop();
+          this.isKeyEnabled("escape") && this.stop();
           break;
       }
     },
@@ -5446,7 +5447,7 @@ var component = normalizeComponent(
 )
 
 /* harmony default export */ var VTour = (component.exports);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72204f46-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VStep.vue?vue&type=template&id=54f9a632&scoped=true&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"e082d0d6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/VStep.vue?vue&type=template&id=54f9a632&scoped=true&
 var VStepvue_type_template_id_54f9a632_scoped_true_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:'v-step-' + _vm.hash,staticClass:"v-step",class:{ 'v-step--sticky': _vm.isSticky },attrs:{"id":'v-step-' + _vm.hash}},[_vm._t("header",[(_vm.step.header)?_c('div',{staticClass:"v-step__header"},[(_vm.step.header.title)?_c('div',{domProps:{"innerHTML":_vm._s(_vm.step.header.title)}}):_vm._e()]):_vm._e()]),_vm._t("content",[_c('div',{staticClass:"v-step__content"},[(_vm.step.content)?_c('div',{domProps:{"innerHTML":_vm._s(_vm.step.content)}}):_c('div',[_vm._v("This is a demo step! The id of this step is "+_vm._s(_vm.hash)+" and it targets "+_vm._s(_vm.step.target)+".")])])]),_vm._t("actions",[_c('div',{staticClass:"v-step__buttons"},[(!_vm.isLast && _vm.isButtonEnabled('buttonSkip'))?_c('button',{staticClass:"v-step__button v-step__button-skip",on:{"click":function($event){$event.preventDefault();return _vm.skip($event)}}},[_vm._v(_vm._s(_vm.labels.buttonSkip))]):_vm._e(),(!_vm.isFirst && _vm.isButtonEnabled('buttonPrevious'))?_c('button',{staticClass:"v-step__button v-step__button-previous",on:{"click":function($event){$event.preventDefault();return _vm.previousStep($event)}}},[_vm._v(_vm._s(_vm.labels.buttonPrevious))]):_vm._e(),(!_vm.isLast && _vm.isButtonEnabled('buttonNext'))?_c('button',{staticClass:"v-step__button v-step__button-next",on:{"click":function($event){$event.preventDefault();return _vm.nextStep($event)}}},[_vm._v(_vm._s(_vm.labels.buttonNext))]):_vm._e(),(_vm.isLast && _vm.isButtonEnabled('buttonStop'))?_c('button',{staticClass:"v-step__button v-step__button-stop",on:{"click":function($event){$event.preventDefault();return _vm.finish($event)}}},[_vm._v(_vm._s(_vm.labels.buttonStop))]):_vm._e()])]),_c('div',{staticClass:"v-step__arrow",class:{ 'v-step__arrow--dark': _vm.step.header && _vm.step.header.title },attrs:{"data-popper-arrow":""}})],2)}
 var VStepvue_type_template_id_54f9a632_scoped_true_staticRenderFns = []
 
