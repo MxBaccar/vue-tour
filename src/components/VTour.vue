@@ -75,6 +75,7 @@ export default {
   },
   mounted() {
     this.$tours[this.name] = this;
+    console.log('mourad');
   },
   beforeDestroy() {
     // Remove the keyup listener if it has been defined
@@ -182,10 +183,11 @@ export default {
 
       if (futureStep < this.numberOfSteps && this.currentStep !== -1) {
         let step = this.steps[futureStep];
+         console.log(step.before);
         if (typeof step.before !== "undefined") {
           try {
             if (typeof step.before == "string") {
-              console.log(step.before);
+             
               step.before = new Function("return " + step.before)();
             }
             await step.before("next");
