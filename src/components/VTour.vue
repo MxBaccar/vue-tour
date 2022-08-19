@@ -178,10 +178,10 @@ export default {
         if (typeof step.before !== 'undefined') {
           try {
             if (typeof step.before == 'string')
-            {
-             step.before=new Function('return ' + step.before)()
-            }
-            await step.before('next')
+              {
+                step.before = new Function('return ' + step.before)()
+              }
+              await step.before('next')
           } catch (e) {
             return Promise.reject(e)
           }
